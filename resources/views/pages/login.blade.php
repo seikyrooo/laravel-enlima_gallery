@@ -22,7 +22,7 @@
                     @enderror
 
                 </div>
-                <button type="submit" class="btn btn-primary w-100 mb-3 mt-3">Login</button>
+                <button type="submit" class="btn btn-dark w-100 mb-3 mt-3">Login</button>
                 <p class="text-center mb-0">Belum punya akun? <a href="{{ route('register.index') }}"
                         class="text-decoration-none">daftar</a>
                 </p>

@@ -107,6 +107,7 @@
                     <span class="fs-4 ms-2">{{ $data->likes_count }}</span>
                 </div>
                 {{-- Delete Photo --}}
+                @if (Auth::user()->id == $data->user->id)
                 <form action="{{ route('photo.delete', $data->id) }}" method="POST">
                     @csrf
                     @method('delete')
@@ -121,6 +122,8 @@
                         </svg>
                     </button>
                 </form>
+                @endif
+
             </div>
 
             <div id="post-detail" class="my-2 ms-3">
@@ -152,7 +155,7 @@
                             <a href="{{ route('profile.people', $comment->user_id) }}"
                                 class="d-flex
                                 justify-content-start align-items-center mb-2 text-decoration-none">
-                                <img src="{{ $data->user->avatar != null ? asset('storage/' . $data->user->avatar) : 'https://dummyimage.com/640x1:1/' }}"
+                                <img src="{{ $comment->user->avatar != null ? asset('storage/' . $comment->user->avatar) : 'https://dummyimage.com/640x1:1/' }}"
                                     alt="profile-picture" width="50" height="50"
                                     style="object-fit: cover; border-radius: 100%">
                                 <span class="ms-2 fs-5 text-dark">{{ $comment->user->nama }}</span>

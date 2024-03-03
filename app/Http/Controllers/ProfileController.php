@@ -22,10 +22,8 @@ class ProfileController extends Controller
         if (!User::find($user_id)) {
             return redirect()->route('home');
         }
-        if ($user_id == auth()->user()->id){
-            return redirect()->route('profile.index');
-        }
-        $user = User::find($user_id)->select('id', 'nama', 'avatar', 'created_at')->first();
+
+        $user = User::find($user_id);
         $photos = Photo::where('user_id', $user_id)->orderBy('created_at', 'desc')->get();
 
         return view('pages.profile', compact('photos', 'user'));

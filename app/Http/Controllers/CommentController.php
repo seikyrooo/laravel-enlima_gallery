@@ -48,7 +48,7 @@ class CommentController extends Controller
 
     public function deleteComment($comment_id)
     {
-        $comment = CommentPhoto::find($comment_id)->first();
+        $comment = CommentPhoto::find($comment_id);
 
         if (Auth::user()->id != $comment->user_id) {
             Alert::error('Anda tidak memiliki akses!');

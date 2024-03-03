@@ -23,7 +23,6 @@
                 <div class="d-flex justify-content-center mb-2">
                     <button type="submit" class="btn btn-primary w-100">Tambah</button>
                 </div>
-
             </form>
         </div>
     </div>
